@@ -1,0 +1,315 @@
+<html>
+ <head>
+ <link rel="stylesheet" href="../css/style.css">
+ <link rel="stylesheet" 
+href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+ <link rel="stylesheet" 
+href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> 
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ <script 
+src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+ <style>
+ .imagesDivStyle{
+ width: 500px;
+ border: 1px solid black;
+ padding: 5px;
+ }
+ 
+ .imgs{
+ height: 80px;
+ width: 100px;
+ border: 1px solid black;
+ margin: 5px;
+ }
+ </style>
+ </head>
+ <body>
+ <div class="container mt-5 ">
+ <h2 class="text-center mb-5">Details of Accident</h2> 
+ <div class="form-box">
+ <form action='' id='accident'>
+ <div class="form-group">
+ <label class=" col-lg-4 ">Vehicle No.</label>
+ <input class="form-control col-lg-8 " type='text' id='vr' placeholder='Enter Vehicle 
+No.'/>
+ <label class=" col-lg-4 ">Date</label>
+
+ <input class="form-control col-lg-8 " type='date' id='ad'/> <br>
+ <label class=" col-lg-4 ">Time</label>
+ <input class="form-control col-lg-8 " type='time' id='at'/> <br>
+ <label class=" col-lg-4 " >Vehicle speed</label>
+ <input class="form-control col-lg-8 " type='number' id='avs' placeholder='Enter speed 
+of vehicle'/><br>
+ <label class=" col-lg-4 ">Place of Accident</label>
+ <input class="form-control col-lg-8 " type='text' id='poa' placeholder='Enter place of 
+accident'/><br>
+ <label class=" col-lg-4 ">Police FIR No.</label>
+ <input class="form-control col-lg-8 " type='number' id='firn' placeholder='Enter FIR 
+no. (if FIR is lodged)'/><br>
+ <label class=" col-lg-4 ">Name of Police Station</label>
+ <input class="form-control col-lg-8 " type='text' id='psn' placeholder='Enter name of 
+police station'/><br>
+ <label class=" col-lg-4 ">Name of Garage</label>
+ <input class="form-control col-lg-8 " type='text' id='gn' placeholder='Enter name of 
+garage'/><br>
+ <label class=" col-lg-4 ">No. of person travelling at the time of accident</label>
+ <input class="form-control col-lg-8 " type='number' id='nop' placeholder='Enter no. of 
+person'/><br>
+ <label class=" col-lg-8 "></label>
+ <label class=" col-lg-4 ">Vehicle was plaing from</label>
+ <input class="form-control col-lg-8 " type='text' id='from' placeholder='Vehicle was 
+plaing from'/>
+ <label class=" col-lg-4 " >to</label>
+ <input class="form-control col-lg-8 " type='text' id='to' placeholder='Vehicle was 
+plaing to'/><br> 
+ <label class=" col-lg-4 ">Purpose of using vehicle at the time of accident</label><br>
+ <select class=" col-lg-8 form-control" id="purpose">
+ <option value="select">--Select--</option> 
+ <option value="personal">Personal</option>
+ <option value="passanger">Hire passanger</option>
+ <option value="goods">Carriage of Goods</option>
+ </select><br><br><br>
+ <label class=" col-lg-4 ">Was any third party involved</label><br>
+ <select class=" col-lg-8 form-control" id="thirdpartyinvolved">
+ <option value="select">--Select--</option> 
+ <option value="yes">Yes</option>
+ <option value="no">No</option>
+ </select><br> 
+ <div class="text-center">
+ <a href=''><button type='submit' onclick='myfunction1()' id="nextbutton">Next</button></a>
+ </div>
+ </div>
+ </form>
+ <label class=" col-lg-8 ">Images of Vehicle.</label><br><br><br>
+ <div id="imagediv"></div><br>
+
+ <label class=" col-lg-8 " id="label"></label><br>
+ <label class=" col-lg-4 " id="loadlab">Uploading 0 of 14</label> <br>
+ <div class="text-center">
+ <button id="sltbtn">Select</button>
+ <button id="addbtn">Upload</button><br><br>
+ </div>
+ </div>
+ <br><br>
+ <h2 class="text-center mb-5">Third Party Damage</h2> 
+ <div class="form-box">
+ <form action='' id='thirdparty'>
+ <div class="form-group">
+ <label class=" col-lg-4 ">Vehicle No.</label>
+ <input class="form-control col-lg-8 " type='text' id='vhr' placeholder='Enter Vehicle 
+No.'/>
+ <label class=" col-lg-4 ">Type of Loss</label>
+ <input class="form-control col-lg-8 " type='text' id='loss' placeholder='Enter kind of 
+loss'/><br>
+ <label class=" col-lg-4 ">Name of victim</label>
+ <input class="form-control col-lg-3 " type='text' id='vsn' placeholder='Sirname'/>
+ <input class="form-control col-lg-3 " type='text' id='vfn' placeholder='Firstname'/>
+ <input class="form-control col-lg-2 " type='text' id='vln' 
+placeholder='lastname'/><br>
+ <label class=" col-lg-4 ">Address</label>
+ <input class="form-control col-lg-8 " type='text' id='va' placeholder='Enter complete 
+address'><br>
+ <label class=" col-lg-4 ">Mobile No.</label>
+ <input class="form-control col-lg-8 " type='number' id='vmn' placeholder='Ener 
+mobile no.'/><br>
+ <label class=" col-lg-4 ">Gender</label><br>
+ <select class=" col-lg-8 form-control" id="gender">
+ <option value="select">--Select--</option> 
+ <option value="Male">Male</option>
+ <option value="Female">Female</option>
+ </select><br>
+ <label class=" col-lg-4 ">Status</label>
+ <input class="form-control col-lg-8 " type='text' id='status' placeholder='Enter Status 
+of victim'/><br>
+ <div class="text-center"> 
+ <a href=''><button type='submit' onclick='myfunction2()' id="nextbutton">Next</button></a>
+ </div>
+ </div>
+ </form>
+ </div><br><br>
+ <h2 class="text-center mb-5">Garage Details</h2> 
+ <div class="form-box">
+ <form action='' id='garage'>
+ <div class="form-group">
+
+ <label class=" col-lg-4 ">Vehicle No.</label>
+ <input class="form-control col-lg-8 " type='text' id='vhnr' placeholder='Enter Vehicle 
+No.'/>
+ <label class=" col-lg-4 ">Name of Garage</label>
+ <input class="form-control col-lg-8 " type='text' id='gn' placeholder='Enter name of 
+garage'/><br>
+ <label class=" col-lg-4 ">Address</label>
+ <input class="form-control col-lg-8 " type='text' id='ga' placeholder='Enter complete 
+address'><br>
+ <label class=" col-lg-4 ">Mobile No.</label>
+ <input class="form-control col-lg-8 " type='number' id='gpn' placeholder='Ener mobile 
+no.'/><br>
+ <label class=" col-lg-4 ">Date when vehicle shifted to Garage</label>
+ <input class="form-control col-lg-8 " type='date' id='gd'/><br><br>
+ <div class="text-center">
+ 
+ <a href=''><button type='submit' onclick='myfunction3()' id="nextbutton">Next</button></a>
+ </div>
+ </div>
+ </form> 
+ </div>
+ </div>
+ <br><br>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+ <script src="accidenttt.js"></script>
+ <script src="thirdpartyyy.js"></script>
+ <script src="garagee.js"></script>
+ <script>
+ function myfunction1() {
+ location.replace("#thirdparty")
+ }
+ </script>
+ <script>
+ function myfunction2() {
+ location.replace("#garage")
+ }
+</script>
+<script>
+ function myfunction3() {
+ location.replace("documents1.html")
+ }
+</script>
+<script type="module">
+ var files=[];
+
+ var FileReaders = [];
+ var ImageLinksArray = [];
+ const vn = document.getElementById('vr');
+ const imgdiv = document.getElementById('imagediv');
+ const sb = document.getElementById('sltbtn');
+ const ab = document.getElementById('addbtn');
+ const proglab = document.getElementById('loadlab');
+ function OpenFileDialog(){
+ let inp = document.createElement('input');
+ inp.type='file';
+ inp.multiple='multiple';
+ inp.onchange= (e)=>{
+ AssignImagesToFileArray(e.target.files);
+ CreateImgTags();
+ }
+ inp.click();
+ }
+ function AssignImagesToFileArray(thefiles){
+ let num = files.length + thefiles.length;
+ let looplim =(num <=15) ? thefiles.length :(15-files.length);
+ for (let i=0; i<looplim; i++){
+ files.push(thefiles[i]);
+ }
+ if(num>15) alert("Recheck the images");
+ }
+ function CreateImgTags(){
+ imgdiv.innerHTML='';
+ imgdiv.classList.add('imagesDivStyle'); 
+ for (let i=0; i<files.length; i++){
+ FileReaders[i] = new FileReader(); 
+ FileReaders[i].onload = function(){
+ var img = document.createElement('img');
+ img.id='imgNo' + i;
+ img.classList.add('imgs');
+ img.src= FileReaders[i].result;
+ imgdiv.append(img);
+ }
+ FileReaders[i].readAsDataURL(files[i]);
+ }
+ let lab=document.getElementById('label');
+ lab.innerHTML = "";
+ lab.style = "font-size: 12px";
+ lab.addEventListener('click',ClearImages);
+ imgdiv.append(lab);
+ }
+ function getVN(){
+
+ let vhn = vn.value.substring(0,50);
+ return vhn;}
+ function ClearImages(){
+ files= [];
+ ImageLinksArray= [];
+ imgdiv.innerHTML='';
+ imgdiv.classList.remove('imagesDivStyle');
+ }
+ sb.addEventListener('click',OpenFileDialog);
+ ab.addEventListener('click',UploadAllImages);
+ function GetImageUploadProgress(){
+ return 'Images Uploaded ' + ImageLinksArray.length + ' of ' + files.length;
+ }
+ function isAllImagesUploaded(){
+ return ImageLinksArray.length == files.length;
+ }
+ function RestoreBack(){
+ sb.disabled=false;
+ ab.disabled=false;
+ proglab.innerHTML ='';
+ }
+ //upload
+ function UploadAllImages(){
+ sb.disabled=true;
+ ab.disabled=true;
+ 
+ ImageLinksArray=[];
+ for (let i=0; i<files.length; i++){
+ UploadImage(files[i],i);
+ }
+ }
+ function UploadImage(imgToUpload, imgNo){
+ const metadata = {
+ contentType: imgToUpload.type
+ };
+ const storage = getStorage();
+ const imageAddress = "Vehicle/" + getVN() + '/img#' + (imgNo+ 1);
+ const storageRef = sRef(storage, imageAddress);
+ const UploadTask = uploadBytesResumable(storageRef,imgToUpload,metadata);
+ UploadTask.on('state_changed', (snapshot) =>{
+ proglab.innerHTML =GetImageUploadProgress();
+ },
+ (error)=>{
+ alert("error: image upload failed");
+ },
+ ()=>{
+ getDownloadURL(UploadTask.snapshot.ref).then((downloadURL) =>{
+ ImageLinksArray.push(downloadURL);
+
+ if(isAllImagesUploaded()){
+ proglab.innerHTML = "all images uploaded";
+ UploadAProduct();
+ }
+ });
+ }
+ );
+ }
+ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+ // import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-analytics.js";
+ const firebaseConfig = {
+ apiKey: "AIzaSyBzNxCcnq5Mgbq5ojojdXjs9TzYcGURFLM",
+ authDomain: "insure-10fea.firebaseapp.com",
+ databaseURL: "https://insure-10fea-default-rtdb.firebaseio.com",
+ projectId: "insure-10fea",
+ storageBucket: "insure-10fea.appspot.com",
+ messagingSenderId: "952535704771",
+ appId: "1:952535704771:web:eecd76bd76d4d4ebdc2e76",
+ measurementId: "G-6SN0GD7Q4S"
+ }; 
+ const app = initializeApp(firebaseConfig);
+ import {getStorage, ref as sRef, uploadBytesResumable, getDownloadURL} from 
+"https://www.gstatic.com/firebasejs/9.6.10/firebase-storage.js";
+ import {getDatabase, ref, set, child, get, update, remove} from 
+"https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
+ const realdb = getDatabase();
+ function UploadAProduct(){
+ set(ref(realdb, "WebApp/Claim/AccidentImages/" + getVN() + "/"), {
+ LinksofImagesArray: ImageLinksArray
+ });
+ alert("upload successful");
+ RestoreBack();
+ }
+</script>
+ </body>
+</html>

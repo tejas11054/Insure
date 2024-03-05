@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="../css/style.css">
+ <link rel="stylesheet" 
+href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+ <link rel="stylesheet" 
+href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> 
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+ <title>Premium</title>
+ <style>
+ #t1{
+ background-color: transparent;
+ border: none;
+ }
+ </style>
+</head>
+<body>
+ <div class="container mt-5 ">
+ <h2 class="text-center mb-5">Bank Details</h2>
+ <div class="form-box">
+ <form action='' method='POST' id='price'>
+ <div class="form-group">
+ <label class=" col-lg-4 ">Vehicle No.</label>
+ <input class="form-control col-lg-8 " type='text' id='vehiclenumber' placeholder='Enter 
+Vehicle No.'/><br>
+ <div class="text-center">
+ <a href=''><button type='submit' id="sltbtn" >Done</button></a>
+ </div>
+ </div>
+ </form>
+ 
+
+ </div>
+ </div> <br><br>
+</div>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+ <script src="https://smtpjs.com/v3/smtp.js"></script>
+ <script src=""></script>
+ 
+ <script type="module">
+ import {getDatabase, ref, child, onValue, get} from 
+"https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
+ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+ import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-analytics.js";
+ const firebaseConfig = {
+ apiKey: "AIzaSyBzNxCcnq5Mgbq5ojojdXjs9TzYcGURFLM",
+ authDomain: "insure-10fea.firebaseapp.com",
+ databaseURL: "https://insure-10fea-default-rtdb.firebaseio.com",
+ projectId: "insure-10fea",
+ storageBucket: "insure-10fea.appspot.com",
+ messagingSenderId: "952535704771",
+ appId: "1:952535704771:web:9be8cdc3f2d37020dc2e76",
+ measurementId: "G-935ZW5E3LG"
+ };
+ firebase.initializeApp(firebaseConfig);
+ const testdb3=firebase.database().ref('WebApp/Purchase/Premium');
+ document.getElementById('price').addEventListener('submit',submitForm);
+ function submitForm(e){
+ e.preventDefault();
+ var vehiclenumber=getElementVal3('vehiclenumber');
+ // save3(vehiclenumber,rn,dor,dovp,cn,en,make,model,nf,classv,gas,antitheft);
+ myfunction6(vehiclenumber);
+ console.log(vehiclenumber);
+ }; 
+ const getElementVal3 = (id) =>{
+ return document.getElementById(id).value;
+ };
+ const myfunction6=(vehiclenumber)=>{
+ vehiclenumber:vehiclenumber,
+ 
+ firebase.database().ref('WebApp/Purchase/Premium').on("value" , function(snapshot){
+ snapshot.forEach(function(childSnapshot){
+ var a = childSnapshot.val();
+ var un = a["vehiclenumber"];
+ var c = a["premium"];
+ 
+ if(un == vehiclenumber)
+ {
+ alert("Dear: " + un + ", your premium is Rs: " + c + " only/-")
+
+ //console.log(c);
+ location.replace('purchase3.html')
+ } 
+ });
+ });
+ }
+ </script>
+</body>
+</html>

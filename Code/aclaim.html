@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" 
+href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-
+Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+crossorigin="anonymous">
+ <link rel="stylesheet" 
+href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+ <title>Claim Details</title>
+ <style>
+ .nav-item:hover{
+ background-image:linear-gradient(to right, #075586, #67b9e6);
+ color: white;
+ }
+ #t1,#t2,#t3,#t4,#t5,#t6,#t7,#t8{
+ background-color: transparent;
+ border: none;
+ }
+ .nav-item{
+ padding: 10px;
+ font-weight: bold;
+ text-transform: uppercase;
+ 
+ }
+ .navbar{
+ background-image:linear-gradient(to right, #1e5799 0%, #3ccdbb 0%, #16c9f6 100%) ;
+ }
+ .navbar-toggler{
+ color: black;
+ background-color: black;
+ position: absolute;
+ right: 10px; 
+ align-self: center;
+ }
+ </style>
+</head>
+<body>
+ <div class="header nav-class">
+ <nav class="navbar navbar-expand-lg fixed-top">
+ <div class="container text-uppercase">
+ 
+ <button class="navbar-toggler" type="button" data-toggle="collapse" datatarget="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" 
+aria-label="Toggle navigation"></button>
+ <span class="navbar-toggler-icon"></span>
+ </button>
+
+ 
+ <div class="collapse navbar-collapse" id="navbarSupportedContent">
+ <ul class="nav nav-fill nav-pills ">
+ <li class="nav-item">
+ <button id="t1">Personal</button>
+ </li>
+ <li class="nav-item">
+ <button id="t2">Contact</button>
+ </li>
+ <li class="nav-item">
+ <button id="t3">Vehicle</button>
+ </li>
+ <li class="nav-item">
+ <button id="t4">Garrage</button>
+ </li>
+ <li class="nav-item">
+ <button id="t5">Theft</button>
+ </li>
+ <li class="nav-item">
+ <button id="t6">Accident</button>
+ </li>
+ <li class="nav-item">
+ <button id="t7">Commercial</button>
+ </li>
+ <li class="nav-item">
+ <button id="t8">Bank</button>
+ </li>
+ </ul>
+ </div>
+ </div>
+ </nav>
+ </div>
+ 
+<div class="container">
+ <div class="table-responsive">
+ <h2 class="text-center mb-5">Personal Details of Owner</h2>
+ <div class=>
+ <table class= "table table-primary" class=id="dtHorizontalExample" class="table table-striped 
+table-bordered table-sm" cellspacing="0"
+ width="100%">
+ <thead>
+ <th>Vehicle No</th>
+ <th>Policy No</th>
+ <th>Cover No</th>
+ <th>Policy from</th>
+ <th>Policy till</th>
+ <th>First Name</th>
+ <th>Middle Name</th>
+ <th>Last Name</th>
+ <th>Gender (M/F)</th>
+
+ <th>Address CIty</th>
+ </thead>
+ <tbody id="tb1"></tbody>
+ </table><br><br>
+ <h2 class="text-center mb-5">Contact Details of Owner</h2>
+ <table class= "table table-primary" class=id="dtHorizontalExample" class="table table-striped 
+table-bordered table-sm" cellspacing="0"
+ width="100%">
+ <thead>
+ <th>Vehicle No</th>
+ <th>Phone No</th>
+ <th>Mobile No</th>
+ <th>Email ID</th>
+ <th>Birth Date</th>
+ <th>Aadhar No</th>
+ <th>Pan No</th>
+ <th>Profession</th>
+ <th>Monthly Income</th>
+ </thead>
+ <tbody id="tb2"></tbody>
+ </table><br><br>
+ <h2 class="text-center mb-5">Vehicle Details of Owner</h2>
+ <table class= "table table-primary" class=id="dtHorizontalExample" class="table table-striped 
+table-bordered table-sm" cellspacing="0"
+ width="100%">
+ <thead>
+ <th>Vehicle No</th>
+ <th>R. No</th>
+ <th>R. Date</th>
+ <th>Chassis No</th>
+ <th>Engine No</th>
+ <th>Make</th>
+ <th>Model</th>
+ <th>Vehicle Class</th>
+ <th>CNG</th>
+ </thead>
+ <tbody id="tb3"></tbody>
+ </table><br><br>
+ <h2 class="text-center mb-5">Garrage Details</h2>
+ <table class= "table table-primary" class=id="dtHorizontalExample" class="table tablestriped table-bordered table-sm" cellspacing="0"
+ width="100%">
+ <thead>
+ <th>Vehicle No</th>
+ <th>Garrage Name</th>
+ <th>Garrage Address</th>
+ <th>Mobile No</th>
+
+ <th>Date (Vehicleshift)</th>
+ </thead>
+ <tbody id="tb4"></tbody>
+ </table><br><br>
+ <h2 class="text-center mb-5">Theft Details</h2>
+ <table class= "table table-primary" class=id="dtHorizontalExample" class="table table-striped 
+table-bordered table-sm" cellspacing="0"
+ width="100%">
+ <thead>
+ <th>Vehicle No</th>
+ <th>Place Name</th>
+ <th>Date (Theft)</th>
+ <th>Time (Theft)</th>
+ <th>Police Station</th>
+ <th>FIR No</th>
+ </thead>
+ <tbody id="tb5"></tbody>
+ </table><br><br>
+ <h2 class="text-center mb-5">Accident Details</h2>
+ <table class= "table table-primary" class=id="dtHorizontalExample" class="table table-striped 
+table-bordered table-sm" cellspacing="0"
+ width="100%">
+ <thead>
+ <th>Vehicle No</th>
+ <th>Accident Date</th>
+ <th>Accident Time</th>
+ <th>Vehicle Speed</th>
+ <th>Accident Place</th>
+ <th>FIR No</th>
+ <th>Police Station</th>
+ <th>Garrage Name</th>
+ <th>Person Count</th>
+ <th>Purpose</th>
+ </thead>
+ <tbody id="tb6"></tbody>
+ </table><br><br>
+ <h2 class="text-center mb-5">Commercial Details</h2>
+ <table class= "table table-primary" class=id="dtHorizontalExample" class="table table-striped 
+table-bordered table-sm" cellspacing="0"
+ width="100%">
+ <thead>
+ <th>Vehicle No</th>
+ <th>Load Nature</th>
+ <th>GR Date</th>
+ <th>GR No</th>
+ <th>Permit No</th>
+ <th>FItness Upto</th>
+ </thead>
+
+ <tbody id="tb7"></tbody>
+ </table><br><br>
+ <h2 class="text-center mb-5">Bank Details</h2>
+ <table class= "table table-primary" class=id="dtHorizontalExample" class="table table-striped 
+table-bordered table-sm" cellspacing="0"
+ width="100%">
+ <thead>
+ <th>Vehicle No</th>
+ <th>Last Name</th>
+ <th>First Name</th>
+ <th>Middle Name</th>
+ <th>Account No</th>
+ <th>Account Type</th>
+ <th>Bank Name</th>
+ <th>Branch Name</th>
+ <th>MICR Code</th>
+ <th>IFSC Code</th>
+ </thead>
+ <tbody id="tb8"></tbody>
+ </table><br><br><br><br><br>
+ </div> 
+ </div>
+</div>
+</div>
+ <script type="module">
+ import {getDatabase, ref, child, onValue, get} from 
+"https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
+ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+ import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-analytics.js"; 
+ const firebaseConfig = {
+ apiKey: "AIzaSyBzNxCcnq5Mgbq5ojojdXjs9TzYcGURFLM",
+ authDomain: "insure-10fea.firebaseapp.com",
+ databaseURL: "https://insure-10fea-default-rtdb.firebaseio.com",
+ projectId: "insure-10fea",
+ storageBucket: "insure-10fea.appspot.com",
+ messagingSenderId: "952535704771",
+ appId: "1:952535704771:web:eecd76bd76d4d4ebdc2e76",
+ measurementId: "G-6SN0GD7Q4S"
+ };
+ const app = initializeApp(firebaseConfig);
+ const db = getDatabase();
+ const analytics = getAnalytics(app);
+ var b1 = document.getElementById('t1');
+ var b2 = document.getElementById('t2');
+ var b3 = document.getElementById('t3');
+ var b4 = document.getElementById('t4');
+ var b5 = document.getElementById('t5');
+
+ var b6 = document.getElementById('t6');
+ var b7 = document.getElementById('t7');
+ var b8 = document.getElementById('t8');
+ var tbody = document.getElementById('tb1');
+ function additems(vn, pn, cn, pf, pt, fn, mn, ln, ge, add){
+ let trow = document.createElement('tr');
+ let td1 = document.createElement('td');
+ let td2 = document.createElement('td');
+ let td3 = document.createElement('td');
+ let td4 = document.createElement('td');
+ let td5 = document.createElement('td');
+ let td6 = document.createElement('td');
+ let td7 = document.createElement('td');
+ let td8 = document.createElement('td');
+ let td9 = document.createElement('td');
+ let td10 = document.createElement('td');
+ td1.innerHTML = vn;
+ td2.innerHTML = pn;
+ td3.innerHTML = cn;
+ td4.innerHTML = pf;
+ td5.innerHTML = pt;
+ td6.innerHTML = fn;
+ td7.innerHTML = mn;
+ td8.innerHTML = ln;
+ td9.innerHTML = ge;
+ td10.innerHTML = add;
+ trow.appendChild(td1);
+ trow.appendChild(td2);
+ trow.appendChild(td3);
+ trow.appendChild(td4);
+ trow.appendChild(td5);
+ trow.appendChild(td6);
+ trow.appendChild(td7);
+ trow.appendChild(td8);
+ trow.appendChild(td9);
+ trow.appendChild(td10);
+ 
+ tbody.appendChild(trow);
+ }
+ function allitemdtotable(thestudent){
+ tbody.innerHTML="";
+ thestudent.forEach(element=>{
+ additems(element.vhr, element.policyno, element.coverno, element.policyfrom, 
+element.policytill, element.fullfirst, element.fullmiddle, element.fulllast, element.gender, 
+element.city);
+ })
+
+ }
+ function getdata(){
+ const dbref = ref(db);
+ get(child(dbref, "WebApp/Claim/OwnerPersonal"))
+ .then((snapshot) =>{
+ var students = [];
+ snapshot.forEach(childSnapshot=>{
+ students.push(childSnapshot.val());
+ });
+ allitemdtotable(students);
+ });
+ }
+ //table 2
+ var tbody2 = document.getElementById('tb2');
+ function additems2(vn1, phn, mn, email, dob, an, pan, ip, mi){
+ let trow2 = document.createElement('tr');
+ let td21 = document.createElement('td');
+ let td22 = document.createElement('td');
+ let td24 = document.createElement('td');
+ let td25 = document.createElement('td');
+ let td26 = document.createElement('td');
+ let td27 = document.createElement('td');
+ let td28 = document.createElement('td');
+ let td29 = document.createElement('td');
+ let td20 = document.createElement('td');
+ td21.innerHTML = vn1;
+ td22.innerHTML = phn;
+ // td23.innerHTML = apn;
+ td24.innerHTML = mn;
+ td25.innerHTML = email;
+ td26.innerHTML = dob;
+ td27.innerHTML = an;
+ td28.innerHTML = pan;
+ td29.innerHTML = ip;
+ td20.innerHTML = mi;
+ trow2.appendChild(td21);
+ trow2.appendChild(td22);
+ // trow2.appendChild(td23);
+ trow2.appendChild(td24);
+ trow2.appendChild(td25);
+ trow2.appendChild(td26);
+ trow2.appendChild(td27);
+ trow2.appendChild(td28);
+ trow2.appendChild(td29);
+ trow2.appendChild(td20);
+ 
+
+ tbody2.appendChild(trow2);
+ }
+ function allitemdtotable2(thestudent){
+ tbody2.innerHTML="";
+ thestudent.forEach(element=>{
+ additems2(element.vr, element.phn, element.mn, element.email, element.dob, element.adn, 
+element.pan, element.profession, element.income);
+ })
+ }
+ function getdata2(){
+ const dbref2 = ref(db);
+ get(child(dbref2, "WebApp/Claim/OwnerContact"))
+ .then((snapshot) =>{
+ var students2 = [];
+ snapshot.forEach(childSnapshot=>{
+ students2.push(childSnapshot.val());
+ });
+ allitemdtotable2(students2);
+ });
+ }
+ var tbody3 = document.getElementById('tb3');
+ function additems3(vhn, rn, dr, cn, en, make, model, cv, cng){
+ let trow3 = document.createElement('tr');
+ let td31 = document.createElement('td');
+ let td32 = document.createElement('td');
+ let td33 = document.createElement('td');
+ // let td34 = document.createElement('td');
+ let td35 = document.createElement('td');
+ let td36 = document.createElement('td');
+ let td37 = document.createElement('td');
+ let td38 = document.createElement('td');
+ let td39 = document.createElement('td');
+ let td30 = document.createElement('td');
+ td31.innerHTML = vhn;
+ td32.innerHTML = rn;
+ td33.innerHTML = dr;
+ // td34.innerHTML = dp;
+ td35.innerHTML = cn;
+ td36.innerHTML = en;
+ td37.innerHTML = make;
+ td38.innerHTML = model;
+ td39.innerHTML = cv;
+ td30.innerHTML = cng;
+ trow3.appendChild(td31);
+ trow3.appendChild(td32);
+ trow3.appendChild(td33);
+ // trow3.appendChild(td34);
+ trow3.appendChild(td35);
+
+ trow3.appendChild(td36);
+ trow3.appendChild(td37);
+ trow3.appendChild(td38);
+ trow3.appendChild(td39);
+ trow3.appendChild(td30); 
+ tbody3.appendChild(trow3);
+ }
+ function allitemdtotable3(thestudent){
+ tbody3.innerHTML="";
+ thestudent.forEach(element=>{
+ additems3(element.vr, element.rn, element.dor, element.cn, element.en, element.make, 
+element.model, element.classv, element.gas);
+ })
+ }
+ function getdata3(){
+ const dbref3 = ref(db);
+ get(child(dbref3, "WebApp/Claim/Vehicle"))
+ .then((snapshot) =>{
+ var students3 = [];
+ snapshot.forEach(childSnapshot=>{
+ students3.push(childSnapshot.val());
+ });
+ allitemdtotable3(students3);
+ });
+ }
+ //table 4
+ var tbody4 = document.getElementById('tb4');
+ function additems4(vn, gn, add, mn, date){
+ let trow4 = document.createElement('tr');
+ let td41 = document.createElement('td');
+ let td42 = document.createElement('td');
+ let td43 = document.createElement('td');
+ let td44 = document.createElement('td');
+ let td45 = document.createElement('td');
+ td41.innerHTML = vn;
+ td42.innerHTML = gn;
+ td43.innerHTML = add;
+ td44.innerHTML = mn;
+ td45.innerHTML = date;
+ trow4.appendChild(td41);
+ trow4.appendChild(td42);
+ trow4.appendChild(td43);
+ trow4.appendChild(td44);
+ trow4.appendChild(td45);
+ 
+
+ tbody4.appendChild(trow4);
+ }
+ function allitemdtotable4(thestudent){
+ tbody4.innerHTML="";
+ thestudent.forEach(element=>{
+ additems4(element.vhnr, element.gn, element.ga, element.gpn, element.gd);
+ })
+ }
+ function getdata4(){
+ const dbref4 = ref(db);
+ get(child(dbref4, "WebApp/Claim/Garage"))
+ .then((snapshot) =>{
+ var students4 = [];
+ snapshot.forEach(childSnapshot=>{
+ students4.push(childSnapshot.val());
+ });
+ allitemdtotable4(students4);
+ });
+ }
+ var tbody5 = document.getElementById('tb5');
+ function additems5(vn1, place, date, time, pt, fir){
+ let trow5 = document.createElement('tr');
+ let td51 = document.createElement('td');
+ let td52 = document.createElement('td');
+ let td53 = document.createElement('td');
+ let td54 = document.createElement('td');
+ let td55 = document.createElement('td');
+ let td56 = document.createElement('td');
+ td51.innerHTML = vn1;
+ td52.innerHTML = place;
+ td53.innerHTML = date;
+ td54.innerHTML = time;
+ td55.innerHTML = pt;
+ td56.innerHTML = fir;
+ trow5.appendChild(td51);
+ trow5.appendChild(td52);
+ trow5.appendChild(td53);
+ trow5.appendChild(td54);
+ trow5.appendChild(td55);
+ trow5.appendChild(td56);
+ tbody5.appendChild(trow5);
+ }
+ function allitemdtotable5(thestudent){
+ tbody5.innerHTML="";
+ thestudent.forEach(element=>{
+ additems5(element.vr, element.pot, element.dot, element.tot, element.pst, element.firt);
+ })
+ }
+
+ function getdata5(){
+ const dbref5 = ref(db);
+ get(child(dbref5, "WebApp/Claim/Theft"))
+ .then((snapshot) =>{
+ var students5 = [];
+ snapshot.forEach(childSnapshot=>{
+ students5.push(childSnapshot.val());
+ });
+ allitemdtotable5(students5);
+ });
+ }
+ var tbody6 = document.getElementById('tb6');
+ function additems6(vn1, ad, at, vs, ap, fir, ps, gn, np, pr){
+ let trow6 = document.createElement('tr');
+ let td61 = document.createElement('td');
+ let td62 = document.createElement('td');
+ let td63 = document.createElement('td');
+ let td64 = document.createElement('td');
+ let td65 = document.createElement('td');
+ let td66 = document.createElement('td');
+ let td67 = document.createElement('td');
+ let td68 = document.createElement('td');
+ let td69 = document.createElement('td');
+ let td60 = document.createElement('td');
+ td61.innerHTML = vn1;
+ td62.innerHTML = ad;
+ td63.innerHTML = at;
+ td64.innerHTML = vs;
+ td65.innerHTML = ap;
+ td66.innerHTML = fir;
+ td67.innerHTML = ps;
+ td68.innerHTML = gn;
+ td69.innerHTML = np;
+ td60.innerHTML = pr;
+ trow6.appendChild(td61);
+ trow6.appendChild(td62);
+ trow6.appendChild(td63);
+ trow6.appendChild(td64);
+ trow6.appendChild(td65);
+ trow6.appendChild(td66);
+ trow6.appendChild(td67);
+ trow6.appendChild(td68);
+ trow6.appendChild(td69);
+ trow6.appendChild(td60);
+ 
+ tbody6.appendChild(trow6);
+
+ }
+ function allitemdtotable6(thestudent){
+ tbody6.innerHTML="";
+ thestudent.forEach(element=>{
+ additems6(element.vr, element.ad, element.at, element.avs, element.poa, element.firn, 
+element.psn, element.gn, element.nop, element.purpose);
+ })
+ }
+ function getdata6(){
+ const dbref6 = ref(db);
+ get(child(dbref6, "WebApp/Claim/Accident"))
+ .then((snapshot) =>{
+ var students6 = [];
+ snapshot.forEach(childSnapshot=>{
+ students6.push(childSnapshot.val());
+ });
+ allitemdtotable6(students6);
+ });
+ }
+ //table 7
+ var tbody7 = document.getElementById('tb7');
+ function additems7(vn1, load, grd, grn, pn, fup){
+ let trow7 = document.createElement('tr');
+ let td71 = document.createElement('td');
+ let td72 = document.createElement('td');
+ let td73 = document.createElement('td');
+ let td74 = document.createElement('td');
+ let td75 = document.createElement('td');
+ let td76 = document.createElement('td');
+ td71.innerHTML = vn1;
+ td72.innerHTML = load;
+ td73.innerHTML = grd;
+ td74.innerHTML = grn;
+ td75.innerHTML = pn;
+ td76.innerHTML = fup;
+ trow7.appendChild(td71);
+ trow7.appendChild(td72);
+ trow7.appendChild(td73);
+ trow7.appendChild(td74);
+ trow7.appendChild(td75);
+ trow7.appendChild(td76);
+ 
+ tbody7.appendChild(trow7);
+ }
+
+ function allitemdtotable7(thestudent){
+ tbody7.innerHTML="";
+ thestudent.forEach(element=>{
+ additems7(element.vr, element.load, element.grdate, element.grn, element.prmtn, 
+element.fitness);
+ })
+ }
+ function getdata7(){
+ const dbref7 = ref(db);
+ get(child(dbref7, "WebApp/Claim/Commercial"))
+ .then((snapshot) =>{
+ var students7 = [];
+ snapshot.forEach(childSnapshot=>{
+ students7.push(childSnapshot.val());
+ });
+ allitemdtotable7(students7);
+ });
+ }
+ //table 8
+ var tbody8 = document.getElementById('tb8');
+ function additems8(vhn, sn, fn, mn, an, at, bn, bbn, mc, ic){
+ let trow8 = document.createElement('tr');
+ let td81 = document.createElement('td');
+ let td82 = document.createElement('td');
+ let td83 = document.createElement('td');
+ let td84 = document.createElement('td');
+ let td85 = document.createElement('td');
+ let td86 = document.createElement('td');
+ let td87 = document.createElement('td');
+ let td88 = document.createElement('td');
+ let td89 = document.createElement('td');
+ let td80 = document.createElement('td');
+ td81.innerHTML = vhn;
+ td82.innerHTML = sn;
+ td83.innerHTML = fn;
+ td84.innerHTML = mn;
+ td85.innerHTML = an;
+ td86.innerHTML = at;
+ td87.innerHTML = bn;
+ td88.innerHTML = bbn;
+ td89.innerHTML = mc;
+ td80.innerHTML = ic;
+
+ trow8.appendChild(td81);
+ trow8.appendChild(td82);
+ trow8.appendChild(td83);
+ trow8.appendChild(td84);
+ trow8.appendChild(td85);
+ trow8.appendChild(td86);
+ trow8.appendChild(td87);
+ trow8.appendChild(td88);
+ trow8.appendChild(td89);
+ trow8.appendChild(td80);
+ 
+ tbody8.appendChild(trow8);
+ }
+ function allitemdtotable8(thestudent){
+ tbody8.innerHTML="";
+ thestudent.forEach(element=>{
+ additems8(element.vr, element.bsn, element.bfn, element.bln, element.ban, 
+element.banktype, element.bn, element.bb, element.micr, element.ifsc);
+ })
+ }
+ function getdata8(){
+ const dbref8 = ref(db);
+ get(child(dbref8, "WebApp/Claim/Bank"))
+ .then((snapshot) =>{
+ var students8 = [];
+ snapshot.forEach(childSnapshot=>{
+ students8.push(childSnapshot.val());
+ });
+ allitemdtotable8(students8);
+ });
+ }
+ t1.addEventListener('click', getdata);
+ t2.addEventListener('click', getdata2);
+ t3.addEventListener('click', getdata3);
+ t4.addEventListener('click', getdata4);
+ t5.addEventListener('click', getdata5);
+ t6.addEventListener('click', getdata6);
+ t7.addEventListener('click', getdata7);
+ t8.addEventListener('click', getdata8);
+ </script>
+</body>
+</html>

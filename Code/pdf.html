@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content=
+"width=device-width,initial-scale=1.0">
+<!-- CSS only -->
+<link href=
+"https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+integrity=
+"sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+crossorigin="anonymous" rel="stylesheet">
+<!-- Html2Pdf -->
+<script src=
+"https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.8.1/html2pdf.bundle.min.js"
+integrity=
+"sha512vDKWohFHe2vkVWXHp3tKvIxxXg0pJxeid5eo+UjdjME3DBFBn2F8yWOE0XmiFcFbXxr
+EOR1JriWEno5Ckpn15A=="
+crossorigin="anonymous">
+</script>
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+ <div class="container mt-5 ">
+ <h2 class="text-center mb-5">E Receipt</h2>
+ <div class="form-box">
+<!-- Form encrypted as text -->
+<form id ="form-print" enctype="text/plain" >
+ <div class="form-group">
+ <label class=" col-lg-4 ">Vehicle No.</label>
+ <input class="form-control col-lg-8 " type='text' id='vn' placeholder='Enter Vehicle 
+No.'/><br>
+ <label class=" col-lg-4 ">Full Name.</label>
+ <input class="form-control col-lg-8 " type='text' id='vfn' placeholder='Enter Full Name'/><br>
+ <label class=" col-lg-4 ">Email</label>
+ <input class="form-control col-lg-8 " type='text' id='email' placeholder='Enter Email'/>
+ <label class=" col-lg-4 ">Policy No..</label>
+ <input class="form-control col-lg-8 " type='text' id='pn' placeholder='Enter Policy No'/><br>
+ <label class=" col-lg-4 ">Policy Period From</label>
+ <input class="form-control col-lg-8 " type='date' id='policyfrom' placeholder="Select polify 
+from"><br>
+ <label class=" col-lg-4 ">Policy Period Till</label>
+ <input class="form-control col-lg-8 " type='date' id='policytill' placeholder="Select polify 
+from">
+ <label class=" col-lg-4 ">Vehicle Type</label>
+ <input class="form-control col-lg-8 " type='text' id='vt' placeholder='Enter Vehilce Type'/>
+ <label class=" col-lg-4 ">Premium</label>
+ <input class="form-control col-lg-8 " type='text' id='price' placeholder='Enter Premium 
+Amout'/>
+ </div>
+</form>
+ <div class="text-center">
+ <button type='submit' id="next-button" onclick="GeneratePdf()">PDF</button> 
+ </div>
+ </div>
+ </div>
+<script>
+// Function to GeneratePdf
+function GeneratePdf() {
+var element = document.getElementById('form-print');
+html2pdf(element);
+}
+</script>
+<script src=
+"https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+integrity=
+"sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+
+crossorigin="anonymous">
+</script>
+</body>
+</html>

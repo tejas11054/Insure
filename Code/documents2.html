@@ -1,0 +1,197 @@
+<html>
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <link rel="stylesheet" href="../css/style.css">
+ <link rel="stylesheet" 
+href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+ <link rel="stylesheet" 
+href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> 
+ <title>Documents to be submit</title>
+ <style>
+ .imagesDivStyle{
+ width: 380px;
+ border: 1px solid black;
+ padding: 5px;
+ }
+ .imgs{
+ height: 80px;
+ width: 100px;
+ border: 1px solid black;
+ margin: 5px;
+ }
+ </style>
+</head>
+ <body>
+ <div class="container mt-5 ">
+ <h2 class="text-center mb-5">Documents to be submit</h2>
+ 
+ <div class="form-box">
+ 
+ <div class="form-group"> 
+ <label class=" col-lg-8 ">Vehicle No.</label>
+ <input class="form-control col-lg-4 " type='text' id='vr' placeholder='Enter Vehicle 
+No.'/><br>
+ <label class=" col-lg-8 ">Policy copy.</label>
+ <label class=" col-lg-4 ">RC with RTO Tax Receipt.</label>
+ <label class=" col-lg-8 ">Driving License.</label>
+ <label class=" col-lg-4 ">FIR copy.</label>
+ <label class=" col-lg-8 ">KYC document for high value claim.</label>
+
+ <label class=" col-lg-4 ">Vehicle FItness Certificate Copy.</label>
+ <label class=" col-lg-8 ">Vehicle Permit and Autherization copy.</label>
+ <label class=" col-lg-4 ">Non Traceable Report.</label>
+ <label class=" col-lg-4 ">Vehicle papers.</label>
+ <label class=" col-lg-8 ">Letter of RTO.</label>
+ <label class=" col-lg-4 ">Letter of Subrogation and Indemnity.</label><br><br><br>
+ <div id="imagediv"></div><br>
+ <label class=" col-lg-8 " id="label"></label><br>
+ <label class=" col-lg-4 " id="loadlab">Uploading 0 of 11</label> <br>
+ <div class="text-center">
+ <button id="sltbtn">Select</button>
+ <button id="addbtn">Upload</button>
+ <a href='end.php'><button type='submit' id="next-button">Next</button></a>
+ </div>
+ </div> 
+ </div> <br><br>
+ </div>
+ <script type="module">
+ var files=[];
+ var FileReaders = [];
+ var ImageLinksArray = [];
+ const vn = document.getElementById('vr');
+ const imgdiv = document.getElementById('imagediv');
+ const sb = document.getElementById('sltbtn');
+ const ab = document.getElementById('addbtn');
+ const proglab = document.getElementById('loadlab');
+ function OpenFileDialog(){
+ let inp = document.createElement('input');
+ inp.type='file';
+ inp.multiple='multiple';
+ inp.onchange= (e)=>{
+ AssignImagesToFileArray(e.target.files);
+ CreateImgTags();
+ }
+ inp.click();
+ }
+ function AssignImagesToFileArray(thefiles){
+ let num = files.length + thefiles.length;
+ let looplim =(num <=15) ? thefiles.length :(15-files.length);
+ for (let i=0; i<looplim; i++){
+ files.push(thefiles[i]);
+ }
+ if(num>15) alert("Recheck the images");
+ }
+ function CreateImgTags(){
+ imgdiv.innerHTML='';
+ imgdiv.classList.add('imagesDivStyle'); 
+ for (let i=0; i<files.length; i++){
+ FileReaders[i] = new FileReader(); 
+
+ FileReaders[i].onload = function(){
+ var img = document.createElement('img');
+ img.id='imgNo' + i;
+ img.classList.add('imgs');
+ img.src= FileReaders[i].result;
+ imgdiv.append(img);
+ }
+ FileReaders[i].readAsDataURL(files[i]);
+ }
+ let lab=document.getElementById('label');
+ lab.innerHTML = "";
+ lab.style = "font-size: 12px";
+ lab.addEventListener('click',ClearImages);
+ imgdiv.append(lab);
+ }
+ function getVN(){
+ let vhn = vn.value.substring(0,50);
+ return vhn;
+ }
+ function ClearImages(){
+ files= [];
+ ImageLinksArray= [];
+ imgdiv.innerHTML='';
+ imgdiv.classList.remove('imagesDivStyle');
+ }
+ sb.addEventListener('click',OpenFileDialog);
+ ab.addEventListener('click',UploadAllImages);
+ function GetImageUploadProgress(){
+ return 'Images Uploaded ' + ImageLinksArray.length + ' of ' + files.length;
+ }
+ function isAllImagesUploaded(){
+ return ImageLinksArray.length == files.length;
+ }
+ function RestoreBack(){
+ sb.disabled=false;
+ ab.disabled=false;
+ proglab.innerHTML ='';
+ }
+ //upload
+ function UploadAllImages(){
+ sb.disabled=true;
+ ab.disabled=true;
+ 
+ ImageLinksArray=[];
+ for (let i=0; i<files.length; i++){
+ UploadImage(files[i],i);
+ }
+ }
+
+ function UploadImage(imgToUpload, imgNo){
+ const metadata = {
+ contentType: imgToUpload.type
+ };
+ const storage = getStorage();
+ const imageAddress = "Documents2/" + getVN() + '/img#' + (imgNo+ 1);
+ const storageRef = sRef(storage, imageAddress);
+ const UploadTask = uploadBytesResumable(storageRef,imgToUpload,metadata);
+ UploadTask.on('state_changed', (snapshot) =>{
+ proglab.innerHTML =GetImageUploadProgress();
+ },
+ (error)=>{
+ alert("error: image upload failed");
+ },
+ ()=>{
+ getDownloadURL(UploadTask.snapshot.ref).then((downloadURL) =>{
+ ImageLinksArray.push(downloadURL);
+ if(isAllImagesUploaded()){
+ proglab.innerHTML = "all images uploaded";
+ UploadAProduct();
+ }
+ });
+ }
+ );
+ }
+ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+ // import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.10/firebaseanalytics.js";
+ const firebaseConfig = {
+ apiKey: "AIzaSyBzNxCcnq5Mgbq5ojojdXjs9TzYcGURFLM",
+ authDomain: "insure-10fea.firebaseapp.com",
+ databaseURL: "https://insure-10fea-default-rtdb.firebaseio.com",
+ projectId: "insure-10fea",
+ storageBucket: "insure-10fea.appspot.com",
+ messagingSenderId: "952535704771",
+ appId: "1:952535704771:web:eecd76bd76d4d4ebdc2e76",
+ measurementId: "G-6SN0GD7Q4S"
+ }; 
+ const app = initializeApp(firebaseConfig);
+ import {getStorage, ref as sRef, uploadBytesResumable, getDownloadURL} from 
+"https://www.gstatic.com/firebasejs/9.6.10/firebase-storage.js";
+ import {getDatabase, ref, set, child, get, update, remove} from 
+"https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
+ const realdb = getDatabase();
+ function UploadAProduct(){
+ set(ref(realdb, "WebApp/Claim/Documents2/" + getVN() + "/"), {
+ LinksofImagesArray: ImageLinksArray
+
+ });
+ alert("upload successful");
+ RestoreBack();
+ }
+ </script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+ </body>
+</html>
